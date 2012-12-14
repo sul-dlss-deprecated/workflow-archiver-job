@@ -1,0 +1,4 @@
+This project basically provides the run_archiver script and configuration in order to perform
+workflow archiving.
+
+The heavy lifting is done by the workflow-archiver gem, so there is no lib directory.

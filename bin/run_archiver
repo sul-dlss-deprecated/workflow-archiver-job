@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require File.expand_path(File.dirname(__FILE__) + '/../config/boot')
+require 'oci8'
+
+PROJECT_ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
+LyberCore::Log.set_logfile("#{PROJECT_ROOT}/log/workflow_archiver.log")
+LyberCore::Log.set_level(1)
+
+archiver = Dor::WorkflowArchiver.new()
+archiver.connect_to_db
+archiver.archive
