@@ -18,7 +18,7 @@ set :whenever_command, "bundle exec whenever"
 set :whenever_environment, defer { deploy_env }
 require "whenever/capistrano"
 
-set :application, "workflow-archiver"
+set :application, "workflow-archiver-job"
 
 task :dev do
   role :app, "sul-lyberservices-dev.stanford.edu"
