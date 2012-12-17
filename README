@@ -2,3 +2,7 @@ This project basically provides the run_archiver script and configuration in ord
 workflow archiving.
 
 The heavy lifting is done by the workflow-archiver gem, so there is no lib directory.
+
+To Deploy via Crontab and whenever gem
+Run the following command (replace XXXXX with the environment you're running in):
+% bundle exec whenever -i workflow-archiver-job --update-crontab --set 'environment=XXXXX'
