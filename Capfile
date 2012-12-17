@@ -38,7 +38,7 @@ end
 
 set :user, "lyberadmin"
 set :repository,  "/afs/ir/dev/dlss/git/lyberteam/workflow-archiver-job.git"
-set :local_repository, "ssh://corn.stanford.edu#{repository}"
+#set :local_repository, "ssh://corn.stanford.edu#{repository}"
 set :deploy_to, "/home/#{user}/#{application}"
 
 # Setup the shared_children directories before deploy:setup
