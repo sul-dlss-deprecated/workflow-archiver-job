@@ -142,7 +142,7 @@ GEM
       treetop (~> 1.4.8)
     mediashelf-loggable (0.4.9)
     mime-types (1.23)
-    moab-versioning (1.2.6)
+    moab-versioning (1.2.7)
       confstruct
       happymapper
       hashery (>= 2.0.0)
@@ -245,7 +245,7 @@ GEM
     whenever (0.8.0)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
-    workflow-archiver (1.2.0)
+    workflow-archiver (1.2.1)
       lyber-core
       rest-client
       ruby-oci8
