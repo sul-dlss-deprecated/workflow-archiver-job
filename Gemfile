@@ -3,6 +3,7 @@ source "http://sul-gems.stanford.edu"
 
 gem "workflow-archiver"
 gem "whenever"
+gem "active-fedora", "<5.0"
 
 group :development do
   gem "lyberteam-devel", ">=1.0.0"
