@@ -38,33 +38,27 @@ task :production do
 end
 
 set :user, "lyberadmin"
-set :repository,  "/afs/ir/dev/dlss/git/lyberteam/workflow-archiver-job.git"
-#set :local_repository, "ssh://corn.stanford.edu#{repository}"
+set :repository do
+  msg = "Sunetid: "
+  sunetid = Capistrano::CLI.ui.ask(msg)
+  "ssh://#{sunetid}@corn.stanford.edu/afs/ir/dev/dlss/git/lyberteam/workflow-archiver-job.git"
+end
+set :deploy_via, :copy
+set :copy_cache, :true
+set :copy_exclude, [".git"]
 set :deploy_to, "/home/#{user}/#{application}"
 
 # Setup the shared_children directories before deploy:setup
 before "deploy:setup", "dlss:set_shared_children"
+set :shared_children, %w(log config/environments)
 
 # Set the LD_LIBRARY_PATH, and set the shared children before deploy:update
-before "deploy:update", "dlss:set_ld_library_path", "dlss:set_shared_children"
+before "deploy:update", "dlss:set_ld_library_path"
 
 namespace :dlss do
-
-  desc <<-DESC
-         Sets the shared directories that will be linked to from each release \
-         overriding the rails specific defaults from capistrano.  Will create \
-         shared/config/certs directory if :shared_config_certs_dir is true. \
-         This task is set to run before deploy:setup and deploy:update
-  DESC
-  task :set_shared_children do
-    dlss_shared_children = %w(log config/environments)
-    set :shared_children, dlss_shared_children
-  end
-
   task :set_ld_library_path do
     default_environment["LD_LIBRARY_PATH"] = "/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH"
   end
-
 end
 
 namespace :deploy do
