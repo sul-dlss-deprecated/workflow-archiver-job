@@ -55,7 +55,7 @@ GEM
       capistrano (~> 3.0)
     capistrano-releaseboard (0.0.1)
       faraday
-    chronic (0.8.0)
+    chronic (0.10.2)
     confstruct (0.2.5)
     daemons (1.1.9)
     deprecation (0.0.5)
@@ -142,7 +142,7 @@ GEM
       json
       nokogiri
       systemu
-    multi_json (1.7.4)
+    multi_json (1.8.4)
     multipart-post (2.0.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -235,7 +235,7 @@ GEM
     wasabi (3.1.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0)
-    whenever (0.8.0)
+    whenever (0.9.0)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     workflow-archiver (1.2.1)
