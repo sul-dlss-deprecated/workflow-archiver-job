@@ -45,9 +45,9 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
-    capistrano-bundler (1.1.1)
+    capistrano-bundler (1.1.2)
       capistrano (~> 3.0)
-      sshkit (>= 1.2.0)
+      sshkit (~> 1.2)
     capistrano-holepicker (0.0.1)
       capistrano (~> 3.0)
       holepicker
@@ -226,10 +226,10 @@ GEM
       term-ansicolor
     stomp (1.2.9)
     systemu (2.5.2)
-    term-ansicolor (1.2.2)
-      tins (~> 0.8)
+    term-ansicolor (1.3.0)
+      tins (~> 1.0)
     tilt (1.4.1)
-    tins (0.13.2)
+    tins (1.0.0)
     uuidtools (2.1.4)
     validatable (1.6.7)
     wasabi (3.1.0)
