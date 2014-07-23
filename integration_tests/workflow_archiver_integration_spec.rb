@@ -161,7 +161,7 @@ describe Dor::WorkflowArchiver do
     context "error handling" do
       it "rolls back copy and delete if commit fails, retries 3 times per object/workflow" do
         @archiver.conn.should_receive(:commit).exactly(9).times.and_raise("Simulated commit failure")
-        @archiver.stub!(:get_latest_version).and_return('1')
+        @archiver.stub(:get_latest_version).and_return('1')
         @archiver.stub(:destroy_pool)
         @archiver.archive
 
@@ -172,14 +172,14 @@ describe Dor::WorkflowArchiver do
       end
 
       it "exits after failing for 3 druids" do
-        @archiver.stub!(:find_completed_objects).and_return([
+        @archiver.stub(:find_completed_objects).and_return([
                           {"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:568", "DATASTREAM"=>"sdrIngestWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:999", "DATASTREAM"=>"etdSubmitWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:001", "DATASTREAM"=>"etdSubmitWF"}
                         ])
-        @archiver.stub!(:get_latest_version).and_return('1')
-        @archiver.stub!(:bind_and_exec_sql).and_raise("Simulated sql exec failure")
+        @archiver.stub(:get_latest_version).and_return('1')
+        @archiver.stub(:bind_and_exec_sql).and_raise("Simulated sql exec failure")
         @archiver.stub(:destroy_pool)
         @archiver.archive
 
@@ -187,7 +187,7 @@ describe Dor::WorkflowArchiver do
       end
 
       it "archives workflow rows even if object cannot be found in Fedora, sets the version to '1'" do
-        pending "Wasting too much time getting exception trapping to work"
+        skip "Wasting too much time getting exception trapping to work"
         # e = RestClient::InternalServerError.new("Unable to find 'integration:345' in fedora")
         # e.stub!(:http_body).and_return("Unable to find 'integration:345' in fedora")
         # @archiver.should_receive(:get_latest_version).with('integration:345').twice.and_raise(e)
@@ -203,7 +203,7 @@ describe Dor::WorkflowArchiver do
 
   describe "#get_latest_version" do
     it "calls the DOR REST service to get the object's latest version" do
-      pending
+      skip
     end
   end
 
