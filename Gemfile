@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'confstruct'
 gem "workflow-archiver"
 gem "whenever"
 gem "active-fedora", "<5.0"
