@@ -128,7 +128,7 @@ GEM
       nokogiri (>= 1.4.3.1)
       systemu (>= 1.2.0)
       validatable
-    lyberteam-capistrano-devel (3.0.0.pre1)
+    lyberteam-capistrano-devel (3.0.0)
       capistrano (~> 3.0)
       capistrano-holepicker
       capistrano-one_time_key
@@ -251,7 +251,7 @@ DEPENDENCIES
   active-fedora (< 5.0)
   capistrano (~> 3.0)
   capistrano-bundler (~> 1.1)
-  lyberteam-capistrano-devel (= 3.0.0.pre1)
+  lyberteam-capistrano-devel
   rspec
   whenever
   workflow-archiver
