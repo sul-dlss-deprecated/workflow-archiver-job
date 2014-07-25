@@ -6,6 +6,7 @@ ROBOT_ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
 # Load the environment file based on Environment.  Default to development
 environment = ENV['ROBOT_ENVIRONMENT'] ||= 'development'
 
+require 'confstruct'
 require 'lyber_core'
 require 'dor/workflow_archiver'
 

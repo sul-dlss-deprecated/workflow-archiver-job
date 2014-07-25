@@ -1,6 +1,6 @@
 source "https://rubygems.org"
-source "http://sul-gems.stanford.edu"
 
+gem 'confstruct'
 gem "workflow-archiver"
 gem "whenever"
 gem "active-fedora", "<5.0"
