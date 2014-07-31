@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'confstruct'
-gem "workflow-archiver"
+gem "workflow-archiver", '~> 1.3'
 gem "whenever"
 gem "active-fedora", "<5.0"
 gem "rspec"  # for on VM integration tests
