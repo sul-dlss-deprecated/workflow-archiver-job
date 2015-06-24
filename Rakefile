@@ -13,8 +13,6 @@ rescue Bundler::BundlerError => e
 end
 
 require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |spec|
-    spec.pattern = 'spec/**/*_spec.rb', 'test/**/*.rb'
-end
+RSpec::Core::RakeTask.new(:spec)
 
 task :default => ['spec']
