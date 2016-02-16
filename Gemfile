@@ -1,13 +1,16 @@
 source "https://rubygems.org"
 
 gem 'confstruct'
-gem "workflow-archiver", '~> 1.3'
+gem "workflow-archiver", '~> 2.0'
 gem "whenever"
-gem "active-fedora", "<5.0"
 gem "rspec", "~> 3.3"  # for on VM integration tests
 
 group :development do
   gem "capistrano", '~> 3.0'
   gem 'capistrano-bundler', '~> 1.1'
-  gem "lyberteam-capistrano-devel"
+  gem "dlss-capistrano"
+end
+
+group :production do
+  gem 'ruby-oci8'
 end

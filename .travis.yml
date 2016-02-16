@@ -1,0 +1,10 @@
+sudo: false
+
+notifications:
+  email: false
+
+rvm:
+  - 1.9.3
+  - 2.2.4
+
+bundler_args: --without production
