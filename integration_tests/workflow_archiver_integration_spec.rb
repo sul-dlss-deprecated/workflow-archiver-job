@@ -43,7 +43,7 @@ describe Dor::WorkflowArchiver do
 
   def count_expected_rows(table, druid, expected)
     count = @conn.exec("select * from #{table} where druid = '#{druid}'") {|r| puts r.join(',')}
-    count.should == expected
+    expect(count).to eq expected
   end
 
   before(:each) do
@@ -95,7 +95,7 @@ describe Dor::WorkflowArchiver do
 
 
       objs = @archiver.find_completed_objects
-      objs.should =~ [{"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"},
+      expect(objs).to match_array [{"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"},
                         {"REPOSITORY"=>"sdr", "DRUID"=>"integration:568", "DATASTREAM"=>"sdrIngestWF"},
                         {"REPOSITORY"=>"sdr", "DRUID"=>"integration:999", "DATASTREAM"=>"etdSubmitWF"}]
     end
@@ -116,7 +116,7 @@ describe Dor::WorkflowArchiver do
         :process => 'register', :status => 'completed', :repo => 'dor')
 
       objs = @archiver.find_completed_objects
-      objs.should =~ [{"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"}]
+      expect(objs).to match_array [{"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"}]
     end
   end
 
@@ -130,8 +130,8 @@ describe Dor::WorkflowArchiver do
 
     context "normal operation" do
       before(:each) do
-        RestClient.should_receive(:get).at_least(:twice).with(/^#{Dor::WorkflowArchiver.config.dor_service_uri}\/dor\/v1\/objects\/integration:/).and_return('1')
-        @archiver.stub(:destroy_pool)
+        expect(RestClient).to receive(:get).at_least(:twice).with(/^#{Dor::WorkflowArchiver.config.dor_service_uri}\/dor\/v1\/objects\/integration:/).and_return('1')
+        allow(@archiver).to receive(:destroy_pool)
         @archiver.archive
       end
 
@@ -141,10 +141,10 @@ describe Dor::WorkflowArchiver do
 
       it "copies repository correctly to the archive table" do
         count = @conn.exec("select * from #{@workflow_archive_table} where repository = 'dor'") {|r| puts r.join(',')}
-        count.should == 2
+        expect(count).to eq 2
 
         count = @conn.exec("select * from #{@workflow_archive_table} where repository = 'sdr'") {|r| puts r.join(',')}
-        count.should == 1
+        expect(count).to eq 1
       end
 
       it "deletes copied rows from the workflow table" do
@@ -160,9 +160,9 @@ describe Dor::WorkflowArchiver do
 
     context "error handling" do
       it "rolls back copy and delete if commit fails, retries 3 times per object/workflow" do
-        @archiver.conn.should_receive(:commit).exactly(9).times.and_raise("Simulated commit failure")
-        @archiver.stub(:get_latest_version).and_return('1')
-        @archiver.stub(:destroy_pool)
+        expect(@archiver.conn).to receive(:commit).exactly(9).times.and_raise("Simulated commit failure")
+        allow(@archiver).to receive(:get_latest_version).and_return('1')
+        allow(@archiver).to receive(:destroy_pool)
         @archiver.archive
 
         count_expected_rows(@workflow_table, 'integration:345', 3)
@@ -172,18 +172,18 @@ describe Dor::WorkflowArchiver do
       end
 
       it "exits after failing for 3 druids" do
-        @archiver.stub(:find_completed_objects).and_return([
+        allow(@archiver).to receive(:find_completed_objects).and_return([
                           {"REPOSITORY"=>"dor", "DRUID"=>"integration:345", "DATASTREAM"=>"googleScannedBookWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:568", "DATASTREAM"=>"sdrIngestWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:999", "DATASTREAM"=>"etdSubmitWF"},
                           {"REPOSITORY"=>"sdr", "DRUID"=>"integration:001", "DATASTREAM"=>"etdSubmitWF"}
                         ])
-        @archiver.stub(:get_latest_version).and_return('1')
-        @archiver.stub(:bind_and_exec_sql).and_raise("Simulated sql exec failure")
-        @archiver.stub(:destroy_pool)
+        allow(@archiver).to receive(:get_latest_version).and_return('1')
+        allow(@archiver).to receive(:bind_and_exec_sql).and_raise("Simulated sql exec failure")
+        allow(@archiver).to receive(:destroy_pool)
         @archiver.archive
 
-        @archiver.errors.should == 3
+        expect(@archiver.errors).to eq 3
       end
 
       it "archives workflow rows even if object cannot be found in Fedora, sets the version to '1'" do
