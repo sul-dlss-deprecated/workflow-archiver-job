@@ -1,5 +1,7 @@
-set :output, '/home/lyberadmin/workflow-archiver-job/current/log/crondebug.log'
+set :output, 'log/crondebug.log'
+
+job_type :rake, "cd :path && ROBOT_ENVIRONMENT=:environment /usr/local/rvm/bin/rvm default do bundle exec rake :task --silent :output"
 
 every 15.minutes, :roles => [:app]  do
- command "BUNDLE_GEMFILE=/home/lyberadmin/workflow-archiver-job/current/Gemfile ROBOT_ENVIRONMENT=#{environment} /usr/local/rvm/wrappers/default/ruby /home/lyberadmin/workflow-archiver-job/current/bin/run_archiver"
+  rake 'run_archiver'
 end

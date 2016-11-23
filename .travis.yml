@@ -3,8 +3,5 @@ sudo: false
 notifications:
   email: false
 
-rvm:
-  - 2.2.4
-  - 2.3.1
-
-bundler_args: --without production
+# we don't have any rspecs so just skip everything
+install: true
