@@ -1,5 +1,3 @@
-server 'sul-lyberservices-dev.stanford.edu', user: 'lyberadmin', roles: %w{web app db}
+server 'workflow-dev.stanford.edu', user: 'lyberadmin', roles: %w{web app db}
 
 Capistrano::OneTimeKey.generate_one_time_key!
-
-set :whenever_environment, 'development'

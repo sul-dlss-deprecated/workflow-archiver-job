@@ -2,10 +2,10 @@ set :application, 'workflow-archiver-job'
 set :repo_url, 'https://github.com/sul-dlss/workflow-archiver-job.git'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/lyberadmin/#{fetch(:application)}"
+set :deploy_to, "/opt/app/lyberadmin/#{fetch(:application)}"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -37,7 +37,7 @@ set :linked_dirs, %w(log config/environments)
 
 set :bundle_env_variables, :ld_library_path => '/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH'
 
-#TODO whenever
+set :whenever_environment, fetch(:stage)
 
 namespace :deploy do
 
