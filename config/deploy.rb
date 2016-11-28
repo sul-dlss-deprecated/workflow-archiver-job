@@ -31,7 +31,7 @@ set :deploy_to, "/opt/app/lyberadmin/#{fetch(:application)}"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-set :stages, %W(dev staging production)
+set :stages, %W(devevelopment stage production)
 
 set :linked_dirs, %w(log config/environments)
 
