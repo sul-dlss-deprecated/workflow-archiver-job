@@ -31,16 +31,16 @@ set :deploy_to, "/home/lyberadmin/#{fetch(:application)}"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-set :stages, %W(development stage production dev)
+set :stages, %W(dev stage prod)
 
 set :linked_dirs, %w(log config/environments)
 
 # To compile native Oracle libraries in ruby-oci8 gem
 set :bundle_env_variables, :ld_library_path => '/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH'
 
-set :whenever_environment, fetch(:stage)
+# set :whenever_environment, fetch(:stage)
 
-set :bundle_without, %w(deployment test development).join(' ')
+# set :bundle_without, %w(deployment test development).join(' ')
 
 namespace :deploy do
 end
