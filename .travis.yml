@@ -17,3 +17,5 @@ install:
 rvm:
   - 2.2.4 # what's on the production VM as of 2017-10-30
 #  - 2.4.2 # what we'd like
+
+cache: bundler
