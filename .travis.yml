@@ -5,3 +5,7 @@ notifications:
 
 # we don't have any rspecs so just skip everything
 install: true
+
+# there are specs in integration_tests but no spec_helper
+# perhaps move it to standard 'spec' folder and have a spec_helper???
+# it seems to rely on an existing database
