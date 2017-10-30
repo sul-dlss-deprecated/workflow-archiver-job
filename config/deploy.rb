@@ -5,7 +5,7 @@ set :repo_url, 'https://github.com/sul-dlss/workflow-archiver-job.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/opt/app/lyberadmin/#{fetch(:application)}"
+set :deploy_to, "/home/lyberadmin/#{fetch(:application)}"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -31,7 +31,7 @@ set :deploy_to, "/opt/app/lyberadmin/#{fetch(:application)}"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-set :stages, %W(development stage production)
+set :stages, %W(development stage production dev)
 
 set :linked_dirs, %w(log config/environments)
 
