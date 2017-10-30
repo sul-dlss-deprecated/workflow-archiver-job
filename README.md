@@ -1,4 +1,8 @@
+[![Build Status](https://travis-ci.org/sul-dlss/workflow-archiver-job.svg?branch=master)](https://travis-ci.org/sul-dlss/workflow-archiver-job)
 [![Dependency Status](https://gemnasium.com/sul-dlss/workflow-archiver-job.svg)](https://gemnasium.com/sul-dlss/workflow-archiver-job)
+[![Coverage Status](https://coveralls.io/repos/github/sul-dlss/workflow-archiver-job/badge.svg?branch=master)](https://coveralls.io/github/sul-dlss/workflow-archiver-job?branch=master)
+[![GitHub version](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job.svg)](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job)
+
 
 # Workflow Archiver Job
 
