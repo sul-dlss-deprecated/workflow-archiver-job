@@ -9,8 +9,10 @@ notifications:
 
 # skip travis build until we have tests
 # https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build
-before_install: false
-install: false
+before_install:
+  - false
+install:
+  - false
 
 rvm:
   - 2.2.4 # what's on the production VM as of 2017-10-30
