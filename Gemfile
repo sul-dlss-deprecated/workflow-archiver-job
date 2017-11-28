@@ -4,8 +4,9 @@ gem 'confstruct'
 gem 'rake'
 gem 'ruby-oci8' # Oracle is required in all environments
 gem 'whenever'
+gem 'workflow-archiver' # does the heavy lifting
+gem 'pry-byebug' # for a better console experience
 
-gem 'workflow-archiver', '~> 1.3.2' # version 2.0.x not deployable
 
 group :deployment do
   gem 'capistrano'
