@@ -4,6 +4,8 @@
 [![GitHub version](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job.svg)](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job)
 
 
+(Note: as of 2017-11-28, there are no specs, so the travis hookup is always going to fail.  The spec we have (from 2014) fails even when all the plumbing is provided.)
+
 # Workflow Archiver Job
 
 This project basically provides the `run_archiver` script and configuration in order to perform

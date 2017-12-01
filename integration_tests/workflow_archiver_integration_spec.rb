@@ -1,3 +1,4 @@
+# NOTE: this is basically a spec from 2014, and no longer runs properly
 ENV['ROBOT_ENVIRONMENT'] = 'integration'
 require File.expand_path(File.dirname(__FILE__) + '/../spec/spec_helper')
 require 'oci8'
