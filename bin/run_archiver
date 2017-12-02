@@ -6,5 +6,9 @@ PROJECT_ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
 LyberCore::Log.set_logfile("#{PROJECT_ROOT}/log/workflow_archiver.log")
 LyberCore::Log.set_level(1)
 
-archiver = Dor::WorkflowArchiver.new
-archiver.archive
+begin
+  archiver = Dor::WorkflowArchiver.new
+  archiver.archive
+rescue => exception
+  Honeybadger.notify(exception)
+end

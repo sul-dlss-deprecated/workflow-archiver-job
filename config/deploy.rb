@@ -34,6 +34,7 @@ set :deploy_to, "/home/lyberadmin/#{fetch(:application)}"
 set :stages, %W(dev stage prod)
 
 set :linked_dirs, %w(log config/environments)
+set :linked_files, %w(config/honeybadger.yml)
 
 # To compile native Oracle libraries in ruby-oci8 gem
 set :bundle_env_variables, :ld_library_path => '/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH'
@@ -44,3 +45,5 @@ set :bundle_env_variables, :ld_library_path => '/usr/lib/oracle/11.2/client64/li
 
 namespace :deploy do
 end
+
+set :honeybadger_env, fetch(:stage)

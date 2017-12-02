@@ -9,6 +9,7 @@ environment = ENV['ROBOT_ENVIRONMENT'] ||= 'development'
 require 'confstruct'
 require 'lyber_core'
 require 'dor/workflow_archiver'
+require 'honeybadger'
 
 env_file = File.expand_path(File.dirname(__FILE__) + "/./environments/#{environment}")
 puts "Loading config from #{env_file}"
