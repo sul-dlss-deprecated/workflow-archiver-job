@@ -1,14 +1,23 @@
 #!/usr/bin/env ruby
 
 require File.expand_path(File.dirname(__FILE__) + '/../config/boot')
+require 'fileutils'
 
 PROJECT_ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
+LOCKFILE = "#{PROJECT_ROOT}/tmp/workflow_archiver_lockfile.txt"
 LyberCore::Log.set_logfile("#{PROJECT_ROOT}/log/workflow_archiver.log")
 LyberCore::Log.set_level(1)
 
 begin
-  archiver = Dor::WorkflowArchiver.new
-  archiver.archive
+  if File.exist?(LOCKFILE)
+    LyberCore::Log.info 'Lockfile found, skipping this run'
+    raise StandardError, 'Lockfile found: archiver may have malfunctioned'
+  else
+    FileUtils.touch(LOCKFILE)
+    archiver = Dor::WorkflowArchiver.new
+    archiver.archive
+    FileUtils.rm(LOCKFILE)
+  end
 rescue => exception
   Honeybadger.notify(exception)
 end
