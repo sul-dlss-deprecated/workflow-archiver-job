@@ -83,7 +83,7 @@ GEM
       thread_safe (~> 0.1)
     whenever (0.10.0)
       chronic (>= 0.6.3)
-    workflow-archiver (2.0.2)
+    workflow-archiver (2.0.3)
       confstruct
       faraday
       lyber-core
