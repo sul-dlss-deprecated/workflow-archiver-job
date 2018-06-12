@@ -3,12 +3,12 @@
 [![GitHub version](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job.svg)](https://badge.fury.io/gh/sul-dlss%2Fworkflow-archiver-job)
 
 
-(Note: as of 2017-11-28, there are no specs, so the travis hookup is always going to fail.  The spec we have (from 2014) fails even when all the plumbing is provided.)
+(Note: as of 2018-06-12, there are no specs.  The spec we have (from 2014) fails even when all the plumbing is provided.)
 
 # Workflow Archiver Job
 
 This project basically provides the `run_archiver` script and configuration in order to perform
-workflow archiving.
+workflow archiving.  This moves rows out of the active workflow table to an archive table. The purpose of this is to keep the active rows smaller and more performant.
 
 The heavy lifting is done by the `workflow-archiver` gem, so there is no lib directory.
 
