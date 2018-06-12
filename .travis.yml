@@ -7,15 +7,11 @@ notifications:
 # perhaps move it to standard 'spec' folder and have a spec_helper???
 # it seems to rely on an existing database
 
-# skip travis build until we have tests
-# https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build
-before_install:
-  - false
-install:
-  - false
+bundler_args: --without production
 
 rvm:
-  - 2.2.4 # what's on the production VM as of 2017-10-30
-#  - 2.4.2 # what we'd like
+  - 2.2.4 # what's on the production VM as of 2018-06-12
+  - 2.3.7
+  - 2.4.4
 
 cache: bundler

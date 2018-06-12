@@ -4,9 +4,8 @@ gem 'confstruct'
 gem 'rake'
 
 group :production do
-  # TODO: really?  we really need ruby-oci8?  really?  really really?
   # workflow-archiver gem uses sequel but sequel needs lower level stuff in ruby-oci8?
-  gem 'ruby-oci8' # Oracle is required in all environments
+  gem 'ruby-oci8'
 end
 
 gem 'whenever'
