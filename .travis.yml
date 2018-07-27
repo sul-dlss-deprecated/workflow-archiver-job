@@ -10,8 +10,7 @@ notifications:
 bundler_args: --without production
 
 rvm:
-  - 2.2.4 # what's on the production VM as of 2018-06-12
-  - 2.3.7
+  - 2.3.7 # what's on the production VM as of 2018-07-26
   - 2.4.4
 
 cache: bundler
