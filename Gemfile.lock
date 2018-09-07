@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -46,9 +46,9 @@ GEM
       retries
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
-    hashie (3.5.7)
-    honeybadger (3.3.1)
-    i18n (1.0.1)
+    hashie (3.6.0)
+    honeybadger (4.0.0)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     lyber-core (4.1.5)
       activesupport
@@ -72,8 +72,8 @@ GEM
       pry (~> 0.10)
     rake (12.3.1)
     retries (0.0.5)
-    ruby-oci8 (2.2.5.1)
-    sequel (5.11.0)
+    ruby-oci8 (2.2.6)
+    sequel (5.12.0)
     sshkit (1.17.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -105,4 +105,4 @@ DEPENDENCIES
   workflow-archiver
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
