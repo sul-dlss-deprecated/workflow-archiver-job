@@ -48,7 +48,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashie (3.6.0)
     honeybadger (4.0.0)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     lyber-core (4.1.5)
       activesupport
@@ -62,7 +62,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
