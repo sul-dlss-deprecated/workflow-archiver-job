@@ -9,7 +9,7 @@ group :production do
 end
 
 gem 'whenever'
-gem 'workflow-archiver' # does the heavy lifting
+gem 'workflow-archiver', '~> 3.0' # does the heavy lifting
 gem 'pry-byebug' # for a better console experience
 
 
